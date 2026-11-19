@@ -1,0 +1,21 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Obsidian, if someone opens the repository itself as a vault
+.obsidian/
+.trash/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Never commit secrets
+.env
+.env.*
+*.pem
+*.key

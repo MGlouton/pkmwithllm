@@ -1,0 +1,26 @@
+name: Idea
+description: Suggest a routine, a rule or an improvement.
+labels: ["idea"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would it solve?
+      description: Describe a concrete situation from your own use, without personal details.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What do you suggest?
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What else did you consider?
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy
+      options:
+        - label: This issue contains no personal or confidential data.
+          required: true

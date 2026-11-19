@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(/private/**)",
+      "Edit(/private/**)",
+      "Write(/private/**)",
+      "Bash(cat *private*)",
+      "Bash(ls *private*)",
+      "Bash(grep *private*)",
+      "Bash(rg *private*)",
+      "Bash(find *private*)",
+      "Bash(head *private*)",
+      "Bash(tail *private*)",
+      "Bash(cp *private*)",
+      "Bash(mv *private*)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/scripts/session_start.py\""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  vault:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint the template wiki
+        run: python3 vault/.claude/scripts/wiki_lint.py --strict
+      - name: Run the session-start report
+        run: python3 vault/.claude/scripts/session_start.py
+      - name: Private folder holds only its README
+        run: |
+          extra=$(git ls-files vault/private | grep -v '^vault/private/README.md$' || true)
+          if [ -n "$extra" ]; then echo "Files in vault/private must not be committed:"; echo "$extra"; exit 1; fi

@@ -1,0 +1,15 @@
+# Private stays on your device: never in Git, never read by the agent
+private/*
+!private/README.md
+
+# Obsidian: per-device state
+.obsidian/workspace*.json
+.trash/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+.env.*
