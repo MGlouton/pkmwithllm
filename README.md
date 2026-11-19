@@ -4,7 +4,7 @@ A starter kit for a personal second brain in plain Markdown. You collect and dec
 
 The kit comes from a personal vault that has been in daily use since October 2026. It shares the method and the machinery, not the content.
 
-## Who this is for
+## Who this is for 
 
 You may find it useful if:
 - you already take notes in Markdown, or want to start;
