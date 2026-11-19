@@ -1,6 +1,6 @@
 ---
 name: writing-style
-description: Rewrite English or German prose so it reads like a person wrote it, without changing what it says. Use when the user says "writing style", "humanize", "sounds like AI", "edit the style", or as a final pass on a page others will read. Finds AI tells (not X but Y, forced triads, bold labels, arrows, summary closers, inflated words, vague authorities) and rewrites whole paragraphs. Never adds facts. Never reads private/.
+description: Rewrite English or German prose so it reads like a person wrote it, without changing what it says. Use when the user says "writing style", "humanize", "sounds like AI", "edit the style", or as a final pass on a page others will read. Finds AI tells (not X but Y, forced triads, bold labels, arrows, summary closers, inflated words, vague authorities) and rewrites whole paragraphs. Never adds facts. Never reads private material.
 ---
 
 # Writing style: write like a person, not like a model

@@ -1,6 +1,6 @@
 # How it works
 
-The vault is a folder of Markdown files with one rules file, `CLAUDE.md`, that an AI agent reads at the start of every session. You and the agent write in different places, and a few routines keep the wiki tidy without you having to remember them.
+The vault is a folder of Markdown files with one rules file, `AGENTS.md`, that an AI agent reads at the start of every session. You and the agent write in different places, and a few routines keep the wiki tidy without you having to remember them.
 
 ## Three ideas behind it
 
@@ -16,7 +16,7 @@ The third is the idea of an agent harness: the rules file, the skills (repeatabl
 flowchart LR
     U([You]) -->|capture| IN[00_inbox<br/>raw notes]
     U -->|write| D[20_daily<br/>daily notes]
-    U -.->|never read by the agent| P[private]
+    U -.->|kept outside the vault| P[private documents]
     IN -->|ingest| W[10_wiki<br/>topics, sources,<br/>decisions, lessons]
     A([Agent]) -->|maintains| W
     A -->|prepares| R[weekly note<br/>facts and questions]
@@ -26,7 +26,7 @@ flowchart LR
     A -->|hands over| S[sessions<br/>work threads]
 ```
 
-You own the inbox, your daily notes, the reflection in each weekly note and the `private/` folder. The agent owns the wiki, the work threads and its memory. It reads your layers, but it never edits them; the only exception is a status line on an inbox note once it is filed.
+You own the inbox, your daily notes, the reflection in each weekly note, and your private documents, which stay outside the vault. The agent owns the wiki, the work threads and its memory. It reads your layers, but it never edits them; the only exception is a status line on an inbox note once it is filed.
 
 ## The routines
 
@@ -60,4 +60,4 @@ Each log line ends with a friction note: what cost time and what would have prev
 
 ## Keeping the context small
 
-What is loaded into every session costs attention and money. `CLAUDE.md` and the memory index therefore hold rules only. Reference material sits in skills and READMEs and is read when needed. Logs and long files are searched with `grep` and never read whole.
+What is loaded into every session costs attention and money. `AGENTS.md` and the memory index therefore hold rules only. Reference material sits in skills and READMEs and is read when needed. Logs and long files are searched with `grep` and never read whole.

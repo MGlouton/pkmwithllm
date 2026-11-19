@@ -1,6 +1,5 @@
-# Private stays on your device: never in Git, never read by the agent
-private/*
-!private/README.md
+# Safety net: if you keep a private folder here after all, it never enters Git
+private/
 
 # Obsidian: per-device state
 .obsidian/workspace*.json

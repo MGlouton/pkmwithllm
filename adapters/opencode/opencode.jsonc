@@ -1,0 +1,10 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // Safety net in case you keep a private/ folder in the vault after all.
+  // The kit's advice is to keep private documents outside the vault entirely.
+  "permissions": [
+    { "action": "read", "resource": "private/*", "effect": "deny" },
+    { "action": "edit", "resource": "private/*", "effect": "deny" },
+    { "action": "shell", "resource": "git push *", "effect": "ask" }
+  ]
+}

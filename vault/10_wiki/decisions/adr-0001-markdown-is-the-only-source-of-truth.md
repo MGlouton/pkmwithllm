@@ -16,4 +16,4 @@ All notes are plain Markdown files with YAML frontmatter in one folder tree. The
 ## Consequences
 - Any editor can open the vault, and Git can version it.
 - Search stays simple (grep, or the editor's search) until the vault grows past a few hundred pages; revisit then.
-- Structure lives in conventions (folders, frontmatter, links), which `CLAUDE.md` defines and `wiki_lint.py` checks.
+- Structure lives in conventions (folders, frontmatter, links), which `AGENTS.md` defines and `wiki_lint.py` checks.

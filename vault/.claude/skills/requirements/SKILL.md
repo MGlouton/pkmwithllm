@@ -1,11 +1,11 @@
 ---
 name: requirements
-description: Write, check and change requirements before building something in or for the vault (a new skill, script, template or routine). Three modes. Write: draft a spec with the user. Check: test a spec against a Definition of Ready. Change: record a change to a spec that is already ready. Use when the user says "spec", "write a spec for X", "requirements", "is this spec ready?", "the requirement changed", or before building something that has no spec. Never reads private/.
+description: Write, check and change requirements before building something in or for the vault (a new skill, script, template or routine). Three modes. Write: draft a spec with the user. Check: test a spec against a Definition of Ready. Change: record a change to a spec that is already ready. Use when the user says "spec", "write a spec for X", "requirements", "is this spec ready?", "the requirement changed", or before building something that has no spec. Never reads private material.
 ---
 
 # Requirements: write, check, change
 
-Follows `CLAUDE.md`. Principles from requirements engineering (IREB CPRE) in plain language: problem before solution, every requirement checkable, assumptions written down.
+Follows `AGENTS.md`. Principles from requirements engineering (IREB CPRE) in plain language: problem before solution, every requirement checkable, assumptions written down.
 
 ## Rules
 1. One feature, one spec, one status. Chat and thread notes point to the spec and never hold requirements of their own.

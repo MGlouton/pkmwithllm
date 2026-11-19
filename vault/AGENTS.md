@@ -1,6 +1,6 @@
-# CLAUDE.md: rules for this vault
+# AGENTS.md: rules for this vault
 
-This file is the schema the agent follows in every session. Keep it short: rules only. Reference material goes into READMEs, skills or wiki pages. Change anything that does not fit you; record bigger changes as a decision (see below).
+This file is the schema the agent follows in every session. It is written for any coding agent that can read and write files; agent-specific wiring (hooks, permission rules) lives in the adapters of the starter kit. Keep it short: rules only. Reference material goes into READMEs, skills or wiki pages. Change anything that does not fit you; record bigger changes as a decision (see below).
 
 ## What this is
 A personal second brain run as an LLM wiki: the user collects and decides, the agent does the bookkeeping (summarise, link, index, log, lint). Markdown is the only source of truth: no hidden database, everything readable in Obsidian or any editor.
@@ -12,12 +12,16 @@ A personal second brain run as an LLM wiki: the user collects and decides, the a
 | Wiki | `10_wiki/`: `topics/`, `sources/`, `decisions/`, `lessons/`, `harness-reviews/`, plus `index.md` and `log.md` | the agent |
 | Daily and weekly notes | `20_daily/` (`YYYY-MM-DD.md` daily, `YYYY-Www.md` weekly) | daily notes: the user only; weekly notes: the agent prepares facts and questions, the user writes the reflection |
 | Work threads | `sessions/` (one note per piece of work, from `_template.md`) | the agent |
-| Agent memory | `claude-memory/` (index `MEMORY.md`) | the agent writes; the user reads and edits |
-| Machinery | `.claude/` (skills, scripts, settings) | the agent, with the user's yes |
-| Private | `private/` | the user only. **The agent must never read, list, quote or write anything here.** |
+| Agent memory | `agent-memory/` (index `MEMORY.md`) | the agent writes; the user reads and edits |
+| Machinery | `.claude/skills/` (skills in the Agent Skills format, read by several agents), `scripts/` | the agent, with the user's yes |
+| Private | outside this folder | the user only. Health, finance, legal and identity documents are not kept in the vault. |
 
 ## Operations
-capture, ingest, query, weekly review, lint. Each has a skill in `.claude/skills/` or a script in `.claude/scripts/`. At each session start a hook prints the vault state (review queues, open feedback, inbox, uncommitted changes, last log entries, open threads). Every 14 days the hook asks for a self-evaluation with the `harness-review` skill.
+capture, ingest, query, weekly review, lint. Each has a skill in `.claude/skills/<name>/SKILL.md` or a script in `scripts/`.
+
+Session start: if the vault state ("Vault state at session start") is not already in your context from a hook, run `python3 scripts/session_start.py` first and read its output. It lists review queues, open feedback, the inbox, uncommitted changes, the last log entries and open threads, and says when the next self-evaluation (`harness-review` skill, every 14 days) is due.
+
+Skills: when the user's request matches a skill's `description`, read that `SKILL.md` and follow it, even if your agent does not load skills by itself.
 
 ## Way of working
 1. Keep it simple. Small steps. Build only what the user asked for.
@@ -44,8 +48,8 @@ capture, ingest, query, weekly review, lint. Each has a skill in `.claude/skills
 - On "process feedback": address every `[!feedback]` callout, change the text, turn each callout into `> [!done] what changed`, then set `review: needed` if the user should look again, otherwise remove the property. Log it. If a comment is unclear, leave it and ask.
 
 ## Privacy
-- Everything outside `private/` may be read by the agent. Assume it is sent to the model provider.
-- `private/` holds health, finance, legal and identity documents. It is excluded from Git and denied in `.claude/settings.json`. If the user pastes private content into a session, do not file it into the wiki.
+- Everything in this folder may be read by the agent. Assume it is sent to the model provider.
+- Health, finance, legal and identity documents are kept outside this folder. If the user pastes such content into a session, do not file it into the wiki. If the user has a `private/` folder here anyway, never read, list, quote or write it.
 - Data that belongs to an employer or to clients (meeting notes, internal documents, colleagues' names or statements) does not belong in this vault. If a file contains such data, stop and tell the user.
 - Never store passwords, tokens, API keys or ID numbers anywhere in the vault.
 
@@ -64,4 +68,4 @@ capture, ingest, query, weekly review, lint. Each has a skill in `.claude/skills
 - The `writing-style` skill is the full checklist.
 
 ## Git (optional)
-If the vault is a Git repository: the agent commits only its own files, with a message that says what changed. `private/` never enters Git. Push only to a private remote.
+If the vault is a Git repository: the agent commits only its own files, with a message that says what changed. Push only to a private remote.

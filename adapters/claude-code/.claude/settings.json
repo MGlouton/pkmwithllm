@@ -22,7 +22,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/scripts/session_start.py\""
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/session_start.py\""
           }
         ]
       }

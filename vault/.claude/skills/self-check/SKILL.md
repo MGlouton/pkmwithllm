@@ -1,6 +1,6 @@
 ---
 name: self-check
-description: Check a result before it goes to the user for review. Asks "is what we state really correct?" and reads the result through the eyes of different readers. Use before setting review needed on a page that states goals, findings, recommendations or a plan, or when the user says "self-check", "check this critically", "is this really right?", "how would X see this?". Writes a short [!check] callout; fixes what is clearly wrong, asks about the rest. Never reads private/.
+description: Check a result before it goes to the user for review. Asks "is what we state really correct?" and reads the result through the eyes of different readers. Use before setting review needed on a page that states goals, findings, recommendations or a plan, or when the user says "self-check", "check this critically", "is this really right?", "how would X see this?". Writes a short [!check] callout; fixes what is clearly wrong, asks about the rest. Never reads private material.
 ---
 
 # Self-check: is it correct, and how do others see it?

@@ -31,7 +31,7 @@ date: YYYY-MM-DD
 ## Constraints
 | ID | Constraint | Source |
 |---|---|---|
-| C1 | Never reads `private/` | `CLAUDE.md` |
+| C1 | Never reads private material | `AGENTS.md` |
 
 ## Acceptance criteria
 | ID | Covers | Given | When | Then |

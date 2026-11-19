@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """Print the vault state at session start: what waits for whom, open threads, recent log entries.
 
-Run from anywhere: python3 .claude/scripts/session_start.py
-Claude Code runs it through the SessionStart hook in .claude/settings.json and adds its output to the
-session context. Never reads private/."""
+Run from anywhere: python3 scripts/session_start.py
+Any agent can run it: Claude Code through the SessionStart hook in its adapter, other agents because
+AGENTS.md tells them to run it first. Skips any private/ folder."""
 import datetime as dt
 import pathlib
 import re
 import subprocess
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
+ROOT = pathlib.Path(__file__).resolve().parents[1]
 SKIP = {"private", ".git", ".obsidian", ".trash", ".claude", "node_modules"}
 TODAY = dt.date.today()
 

@@ -1,11 +1,11 @@
 ---
 name: query
-description: Answer a question from the wiki with citations. Use when the user asks "what do I know about X", "what did I decide about Y", "ask my brain", or any question the vault may answer. Reads 10_wiki first, then raw inbox notes, and says which. Never reads private/.
+description: Answer a question from the wiki with citations. Use when the user asks "what do I know about X", "what did I decide about Y", "ask my brain", or any question the vault may answer. Reads 10_wiki first, then raw inbox notes, and says which. Never reads private material.
 ---
 
 # Query: ask my brain
 
-Follows `CLAUDE.md`.
+Follows `AGENTS.md`.
 
 ## Steps
 1. Read `10_wiki/index.md`. Pick the pages that could answer the question, and follow their `related:` links one hop.
@@ -16,5 +16,5 @@ Follows `CLAUDE.md`.
 6. Log `## [YYYY-MM-DD] query | <question>` only when something was filed or a gap worth tracking was found.
 
 ## Boundaries
-- `private/` is off limits. If the question concerns health, finances or legal matters, say that this lives there and you cannot look.
+- Private material is kept outside the vault. If the question concerns health, finances or legal matters, say that the vault does not hold them.
 - Inbox notes with `status: skipped-sensitive` are not quoted.

@@ -10,7 +10,7 @@ Thanks for taking the time. This is a small personal project shared as a startin
 ## What fits
 - Generic routines that help one person run a Markdown vault with an AI agent.
 - Changes that make the kit easier to adapt (fewer assumptions, clearer rules).
-- Support for other agents (for example an `AGENTS.md` variant) as long as Claude Code keeps working.
+- An adapter for another agent in `adapters/<agent>/`: a README (install, what you get, date checked against the agent's docs) and only the config files the agent needs. The shared core stays agent-neutral.
 
 ## What does not fit
 - Content from your own vault: personal notes, names, employer or client data, screenshots that show them.
@@ -20,10 +20,10 @@ Thanks for taking the time. This is a small personal project shared as a startin
 ## Before you open a pull request
 1. Run the checks from the repository root:
    ```bash
-   python3 vault/.claude/scripts/wiki_lint.py
+   python3 vault/scripts/wiki_lint.py
    ```
    ```bash
-   python3 vault/.claude/scripts/session_start.py
+   python3 vault/scripts/session_start.py
    ```
 2. Check your diff for anything personal: names, e-mail addresses, places, tokens, paths from your own machine.
 3. Add a line to `CHANGELOG.md` under "Unreleased".

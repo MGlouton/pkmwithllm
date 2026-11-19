@@ -8,11 +8,11 @@ Your notes stay files on your disk. But every file the agent reads, and everythi
 If Git sync is on, the vault is also stored at your Git host.
 
 ## What the template does
-- `private/` is excluded from Git by `.gitignore` and denied to Claude Code in `.claude/settings.json` (read, write, edit and common shell commands). Keep health, finance, legal and identity documents there.
-- `CLAUDE.md` tells the agent to stop and tell you when a note contains such data, other people's personal data, or an employer's internal data, and never to file it into the wiki.
-- `CLAUDE.md` forbids storing passwords, tokens and ID numbers anywhere in the vault.
+- Health, finance, legal and identity documents are kept outside the vault folder. That is the only rule that works with every agent.
+- `AGENTS.md` tells the agent to stop and tell you when a note contains such data, other people's personal data, or an employer's internal data, and never to file it into the wiki.
+- `AGENTS.md` forbids storing passwords, tokens and ID numbers anywhere in the vault.
 
-The deny rules reduce the risk of mistakes; they are not a security boundary. A determined command can still read any file the agent's process can read. If something must never reach a model provider, keep it outside the vault folder.
+The adapters add deny rules for a `private/` folder, and `.gitignore` keeps such a folder out of Git, in case you keep one in the vault anyway. Deny rules reduce mistakes; they are not a security boundary. A script the agent runs can still read any file its process can read. If something must never reach a model provider, keep it outside the vault folder.
 
 ## Other people's data
 Notes about other people are personal data under the EU GDPR and the Swiss FADP. For a purely personal vault the household exemption usually applies, but sending such notes to a cloud model is still a transfer to a third party. Prefer topics over people: write "what I learned about negotiating", not a page about a colleague.

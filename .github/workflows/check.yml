@@ -14,10 +14,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Lint the template wiki
-        run: python3 vault/.claude/scripts/wiki_lint.py --strict
+        run: python3 vault/scripts/wiki_lint.py --strict
       - name: Run the session-start report
-        run: python3 vault/.claude/scripts/session_start.py
-      - name: Private folder holds only its README
-        run: |
-          extra=$(git ls-files vault/private | grep -v '^vault/private/README.md$' || true)
-          if [ -n "$extra" ]; then echo "Files in vault/private must not be committed:"; echo "$extra"; exit 1; fi
+        run: python3 vault/scripts/session_start.py
+      - name: No private folder in the template
+        run: test -z "$(git ls-files vault/private)"
+      - name: Agent-neutral core has no Claude Code settings
+        run: test ! -e vault/.claude/settings.json

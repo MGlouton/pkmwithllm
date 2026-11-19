@@ -6,7 +6,7 @@ Only the latest release on `main` gets fixes.
 ## What counts as a security problem here
 This repository holds Markdown, two small Python scripts and agent settings. Relevant problems are, for example:
 - a script or hook that could run unexpected commands, delete files or send data somewhere;
-- a rule or setting that lets the agent read `private/` or leak private data;
+- a rule or setting that makes the agent leak private data;
 - a secret or a piece of personal data that was committed by mistake.
 
 ## How to report

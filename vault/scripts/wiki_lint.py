@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """Lint the wiki: broken wikilinks, pages missing from the index, missing frontmatter, orphans,
-review values outside the schema, and memory files missing from claude-memory/MEMORY.md.
+review values outside the schema, and memory files missing from agent-memory/MEMORY.md.
 
-Run from anywhere: python3 .claude/scripts/wiki_lint.py [--strict]
+Run from anywhere: python3 scripts/wiki_lint.py [--strict]
 --strict exits with status 1 when a problem is found (for CI). Never reads private/."""
 import pathlib
 import re
 import sys
 import unicodedata
 
-ROOT = pathlib.Path(__file__).resolve().parents[2]
-WIKI, MEMORY = ROOT / "10_wiki", ROOT / "claude-memory"
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+WIKI, MEMORY = ROOT / "10_wiki", ROOT / "agent-memory"
 SKIP = {"private", ".git", ".obsidian", ".trash", "node_modules"}
 REVIEW_VALUES = {"needed", "feedback", "approved"}
 nfc = lambda s: unicodedata.normalize("NFC", s)  # macOS file names are often NFD
