@@ -46,7 +46,7 @@ Whatever the agent reads goes to its model provider. Keep health, finance, legal
 
 ## Status
 
-Version 0.1.0, first public release. The skills and scripts run in the original vault; this generic version was tested on the empty template only. See [CHANGELOG.md](CHANGELOG.md).
+Version 0.1.0, first public release. The skills and scripts run in the original vault; this generic version was tested on the empty template, and the opencode adapter only against its documentation. See [CHANGELOG.md](CHANGELOG.md).
 
 ## Contributing
 
